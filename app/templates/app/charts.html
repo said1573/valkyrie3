@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Title  -->
+    <title>Valkyrie System</title>
+
+    <!-- Favicon  -->
+    <link rel="icon" href="{% static 'app/img/core-img/favicon.ico'%}">
+
+    <!-- Core Style CSS -->
+    <link rel="stylesheet" href="{% static 'app/css/core-style.css'%}">
+    <link rel="stylesheet" href="{% static 'app/css/style.css'%}">
+
+    <!-- Responsive CSS -->
+    <link href="{% static 'app/css/responsive.css'%}" rel="stylesheet">
+
+</head>
+
+<style>
+@media (max-width:400px) {
+.form-control { width:90%}
+}
+
+@media (max-width:400px) {
+.btn { width:90%!important}
+}
+
+
+
+.input-group-text{border-top-right-radius:0px;border-bottom-right-radius:0px;}
+
+.card{background:#21252914}
+
+.card-body{padding:1.00rem!important}
+
+
+@media (max-width:768px) { #img{ width:70px!important;margin-left:-5px;} .container{padding-bottom:0px!important;} h4{font-size:23px}}
+
+@media (min-width:500px) { td {font-size:25px}}
+
+#usa { background:url('../../static/app/img/usa.png');
+        background-repeat:no-repeat;
+        background-size:cover;
+       }
+#jpn { background:url('../../static/app/img/jpn.png');
+        background-repeat:no-repeat;
+        background-size:cover;
+         background-position: center;}
+#chn { background:url('../../static/app/img/chn.png');
+        background-repeat:no-repeat;
+        background-size:cover;}
+
+#eur { background:url('../../static/app/img/eur.png');
+        background-repeat:no-repeat;
+        background-size:cover;
+        background-position: center;}
+
+
+
+
+
+
+
+
+
+
+
+</style>
+
+
+<body>
+<!-- Preloader -->
+<div id="preloader">
+    <div class="showbox">
+        <div class="loader">
+            <svg class="circular" viewBox="25 25 50 50">
+                <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"></circle>
+            </svg>
+        </div>
+    </div>
+    <div class="questions-area text-center">
+        <p>Please Wait...</p>
+        <ul>
+            <li>Valkyrie Blockchain Trade System</li>
+        </ul>
+    </div>
+</div>
+
+<!-- Gradient Background Overlay -->
+<div class="gradient-background-overlay"></div>
+
+<!-- Header Area Start -->
+<header class="header-area bg-img" style="background-image: url(../../static/app/img/bg-img/14.jpg);">
+    <div class="container-fluid h-100">
+        <div class="row h-100 align-items-center">
+            <div class="col-12 h-100">
+                <div class="main-menu h-100">
+                    <nav class="navbar h-100 navbar-expand-lg">
+                        <!-- Logo Area  -->
+                        <a class="navbar-brand" href="{% url 'index' %}"><img
+                                src="{% static 'app/img/core-img/logo.png'%}"
+                                alt="Logo"></a>
+
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#studioMenu"
+                                aria-controls="studioMenu" aria-expanded="false" aria-label="Toggle navigation"><i
+                                class="fa fa-bars"></i> Menu
+                        </button>
+
+                        <div class="collapse navbar-collapse" id="studioMenu">
+                            <!-- Menu Area Start  -->
+                            <ul class="navbar-nav ml-auto">
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="{% url 'index' %}">Home </a>
+                                </li>
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="{% url 'charts'%}">환율정보</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" role="button" data-toggle="dropdown"
+                                       aria-haspopup="true" aria-expanded="false">문서 작성</a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" href="{% url 'forms'%}">신용장 신청서</a>
+                                    </div>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" role="button" data-toggle="dropdown"
+                                       aria-haspopup="true" aria-expanded="false">작성 문서 관리</a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" href="{% url 'ing'%}">신용장 신청서</a>
+                                    </div>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" role="button" data-toggle="dropdown"
+                                       aria-haspopup="true" aria-expanded="false">받은 문서 관리</a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" href="{% url 'cireceived'%}">상업송장</a>
+                                        <a class="dropdown-item" href="{% url 'lcreceived1'%}">신용장</a>
+                                        <a class="dropdown-item" href="{% url 'blreceived1'%}">선하증권</a>
+                                        <a class="dropdown-item" href="{% url 'doreceived'%}">인도지시서</a>
+                                    </div>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'mypage1'%}">MYPAGE</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="" data-toggle="modal"
+                                       data-target="#logoutModal">LOGOUT</a>
+                                </li>
+                            </ul>
+
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- Header Area End -->
+
+
+<!--Valkyrie System Area Start -->
+<section class="blog-area section_padding_100 mt-100">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="container-fluid">
+                <h4>환율정보 /
+                    {{date1}}, {{time1}}기준 - 출처:두나무</h4>
+                <!-- Area Chart Example-->
+                <div>
+                    <div class="container-fluid" style="margin:5px; margin-bottom:10px;">
+
+
+                        <div class="row"  style="margin-top:20px">
+                            <div class="col-lg-6 mb-4">
+
+                                <div id="usa" class="card h-100">
+
+                                    <h4 class="card-header">USD(달러)$</h4>
+                                    <div class="card-body">
+                                        <table class="card-text">
+
+                                            <tr>
+                                                <td>Base Price</td>
+                                                <td>:</td>
+                                                <td>￦{{ basePrice1 }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Selling Price</td>
+                                                <td>:</td>
+                                                <td>￦{{sellprice1}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Buying Price</td>
+                                                <td>:</td>
+                                                <td>￦{{buyprice1}}</td>
+                                        </table>
+                                    </div>
+                                    <div class="card-footer">
+                                        <table>
+                                            <tr>
+                                                <td colspan="2">
+                                                    <div class="input-group">
+                                                        <label class="input-group-text" for="usnum">달러</label>
+                                                        <input class="form-control" id="usnum">
+                                                        <div class="input-group-append">
+                                                            <button class="btn btn-outline-dark" type="button"
+                                                                    onclick="mul1()">환전
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>￦&nbsp</td>
+                                                <td><input style="border: none; background: #ffffff00;" id="result1">
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 mb-4">
+
+                                <div id="jpn" class="card h-100">
+
+                                    <h4 class="card-header">JPY(엔)¥</h4>
+                                    <div class="card-body">
+                                        <table class="card-text">
+
+                                            <tr>
+                                                <td>Base Price</td>
+                                                <td>:</td>
+                                                <td>￦{{ basePrice2 }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Selling Price</td>
+                                                <td>:</td>
+                                                <td>￦{{sellprice2}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Buying Price</td>
+                                                <td>:</td>
+                                                <td>￦{{buyprice2}}</td>
+                                        </table>
+                                    </div>
+                                    <div class="card-footer">
+                                        <table>
+                                            <tr>
+                                                <td colspan="2">
+                                                    <div class="input-group">
+                                                        <label class="input-group-text" for="jpnum">엔</label>
+                                                        <input class="form-control" id="jpnum">
+                                                        <div class="input-group-append">
+                                                            <button class="btn btn-outline-dark" type="button"
+                                                                    onclick="mul2()">환전
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>￦&nbsp</td>
+                                                <td><input style="border: none; background: #ffffff00;" id="result2">
+                                                </td>
+                                            </tr>
+
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="col-lg-6 mb-4">
+
+                                <div id="chn" class="card h-100">
+
+                                    <h4 class="card-header">CNY(위안)Y</h4>
+                                    <div class="card-body">
+                                        <table class="card-text">
+
+                                            <tr>
+                                                <td>Base Price</td>
+                                                <td>:</td>
+                                                <td>￦{{ basePrice3 }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Selling Price</td>
+                                                <td>:</td>
+                                                <td>￦{{sellprice3}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Buying Price</td>
+                                                <td>:</td>
+                                                <td>￦{{buyprice3}}</td>
+                                        </table>
+                                    </div>
+                                    <div class="card-footer">
+                                        <table>
+                                            <tr>
+                                                <td colspan="2">
+                                                    <div class="input-group">
+                                                        <label class="input-group-text" for="chnum">위안</label>
+                                                        <input class="form-control" id="chnum">
+                                                        <div class="input-group-append">
+                                                            <button class="btn btn-outline-dark" type="button"
+                                                                    onclick="mul3()">환전
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>￦&nbsp</td>
+                                                <td><input style="border: none; background: #ffffff00;" id="result3">
+                                                </td>
+                                            </tr>
+                                        </table>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 mb-4">
+
+                                <div id="eur" class="card h-100">
+
+                                    <h4 class="card-header">EUR(유로)€</h4>
+                                    <div class="card-body">
+                                        <table class="card-text">
+
+                                            <tr>
+                                                <td>Base Price</td>
+                                                <td>:</td>
+                                                <td>￦{{ basePrice4}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Selling Price</td>
+                                                <td>:</td>
+                                                <td>￦{{sellprice4}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Buying Price</td>
+                                                <td>:</td>
+                                                <td>￦{{buyprice4}}</td>
+                                        </table>
+                                    </div>
+                                    <div class="card-footer">
+                                        <table>
+                                            <tr>
+                                                <td colspan="2">
+                                                    <div class="input-group">
+                                                        <label class="input-group-text" for="eunum">위안</label>
+                                                        <input class="form-control" id="eunum">
+                                                        <div class="input-group-append">
+                                                            <button class="btn btn-outline-dark" type="button"
+                                                                    onclick="mul4()">환전
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>￦&nbsp</td>
+                                                <td><input style="border: none; background: #ffffff00;" id="result4">
+                                                </td>
+                                            </tr>
+                                        </table>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <script>
+            function mul1() {
+            var usnum = document.getElementById('usnum');
+            var result1 = eval(usnum.value)*{{ basePrice1 }}
+            document.getElementById('result1').value = result1;}
+
+
+            function mul2() {
+            var jpnum = document.getElementById('jpnum');
+            var result2 = eval(jpnum.value)*{{ basePrice2 }}
+            document.getElementById('result2').value = result2;}
+
+            function mul3() {
+            var chnum = document.getElementById('chnum');
+            var result3 = eval(chnum.value)*{{ basePrice3 }}
+            document.getElementById('result3').value = result3;}
+
+            function mul4() {
+            var eunum = document.getElementById('eunum');
+            var result4 = eval(eunum.value)*{{ basePrice4 }}
+            document.getElementById('result4').value = result4;}
+
+
+
+
+
+
+
+
+
+
+                </script>
+            </div>
+        </div>
+    </div>
+</section>
+<!--Valkyrie System Area End -->
+
+<!-- Footer Area Start -->
+<footer class="footer-area">
+    <div class="container-fluid h-100">
+        <div class="row h-100">
+            <div class="col-12 h-100">
+                <div class="footer-content h-100 d-md-flex align-items-center justify-content-between">
+                    <!-- Single Footer Content -->
+                    <div class="single-footer-content">
+                        <i class="fa fa-wifi"></i>
+                        <a>valkyriesystem.online</a>
+                    </div>
+                    <!-- Single Footer Content -->
+                    <div class="single-footer-content">
+                        <i class="fa fa-copyright"></i>
+                        <a>Operation Valkyrie</a>
+                    </div>
+                    <!-- Single Footer Content -->
+                    <div class="single-footer-content">
+                        <i class="fa fa-file-text-o"></i>
+                        <a href="{% url 'user_manual' %}" target="_blank">User Manual</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- Footer Area End -->
+
+<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+            <div class="modal-footer">
+                <a style="color:white;" class="btn btn-dark" data-dismiss="modal">Cancel</a>
+                <a class="btn" style="color:white;background:#ff8a12;" href="{% url 'logout' %}">Logout</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- jQuery (Necessary for All JavaScript Plugins) -->
+<script src="{% static 'app/js/jquery/jquery-2.2.4.min.js'%}"></script>
+<!-- Popper js -->
+<script src="{% static 'app/js/popper.min.js'%}"></script>
+<!-- Bootstrap js -->
+<script src="{% static 'app/js/bootstrap.min.js'%}"></script>
+<!-- Plugins js -->
+<script src="{% static 'app/js/plugins.js'%}"></script>
+<!-- Active js -->
+<script src="{% static 'app/js/active.js'%}"></script>
+
+</body>
+<script>
+
+
+</script>
+
+
+</html>

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Title  -->
+    <title>Valkyrie System</title>
+
+    <!-- Favicon  -->
+    <link rel="icon" href="{% static 'app/img/core-img/favicon.ico'%}">
+
+    <!-- Core Style CSS -->
+    <link rel="stylesheet" href="{% static 'app/css/core-style.css'%}">
+    <link rel="stylesheet" href="{% static 'app/css/style.css'%}">
+
+    <!-- Responsive CSS -->
+    <link href="{% static 'app/css/responsive.css'%}" rel="stylesheet">
+
+</head>
+<style>
+@media (max-width:768px){section{padding-top:70%!important;}}
+@media (max-width:992px){#min{display:none;}}
+@media (min-width:993px){.card-login{width:500px}  #max{display:none;}}
+ html, body{ height: 100%; margin: 0;}
+label,a{color:#ff8a12; weight:500;}
+#about{background-image:url(../../static/app/img/about.jpg);
+        background-repeat:no-repeat;
+        background-size:cover;
+        background-position:center;
+        height:100%;
+        padding-top:20%;}
+
+</style>
+<body>
+<!-- Preloader -->
+<div id="preloader">
+    <div class="showbox">
+        <div class="loader">
+            <svg class="circular" viewBox="25 25 50 50">
+                <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"></circle>
+            </svg>
+        </div>
+    </div>
+    <div class="questions-area text-center">
+        <p>Please Wait...</p>
+        <ul>
+            <li>Valkyrie Blockchain Trade System</li>
+        </ul>
+    </div>
+</div>
+
+<!-- Gradient Background Overlay -->
+<div class="gradient-background-overlay"></div>
+
+<!-- Header Area Start -->
+<header class="header-area bg-img" style="">
+    <div class="container-fluid h-100">
+        <div class="row h-100 align-items-center">
+            <div class="col-12 h-100">
+                <div class="main-menu h-100">
+                    <nav class="navbar h-100 navbar-expand-lg">
+                        <!-- Logo Area  -->
+                        <a class="navbar-brand" href="{% url 'index' %}"><img
+                                src="{% static 'app/img/core-img/logo.png'%}"
+                                alt="Logo"></a>
+
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#studioMenu"
+                                aria-controls="studioMenu" aria-expanded="false" aria-label="Toggle navigation"><i
+                                class="fa fa-bars"></i> Menu
+                        </button>
+
+                        <div class="collapse navbar-collapse" id="studioMenu">
+                            <!-- Menu Area Start  -->
+                            <ul class="navbar-nav ml-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'about'%}">ABOUT</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'registerpage'%}">REGISTER</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'login'%}">LOGIN</a>
+                                </li>
+                            </ul>
+                            <!-- Search Form -->
+
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- Header Area End -->
+
+<!-- Social Sidebar Area Start -->
+<section id="about" class="about-section text-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <h2 class="text-white mb-4" style="color:#838383!important;">VALKRIE SYSTEM</h2>
+                <h3 class="text-white mb-4" style="color:#838383!important;">BLOCKCHAIN FOR TRADE</h3>
+                <h4 class="text-white-50" style="color:#ff7b07;">Increase Trust, Transparency and Accountability <br>for
+                    your trade</h4>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- Projects Section -->
+<div id="projects" class="projects-section text-center">
+    <div class="container">
+        <div style="margin:20px">
+            <h1 style="color:#343a40;">System Advantages</h1>
+        </div>
+        <!-- Featured Project Row -->
+        <div class="row align-items-center no-gutters ">
+            <div class="col-lg-6">
+                <img class="img-fluid mb-3 mb-lg-0"  src="{% static 'app/img/hyperledger.png'%}" alt="">
+            </div>
+            <div class="col-lg-6">
+                <p class="featured-text text-center text-lg-center">Hyperledger Fabric 블록체인 기술을 적용하여 신뢰성 확보 및 보안 강화
+                    <h3></h3>
+                    <p class="text-black-50 mb-0"></p>
+
+            </div>
+        </div>
+
+        <!-- Project One Row -->
+        <div class="row justify-content-center no-gutters mb-5 mb-lg-0">
+            <div id = "max" class="col-lg-6">
+                <img class="img-fluid" src="{% static 'app/img/blockchain.jpeg'%}" alt="">
+            </div>
+            <div class="col-lg-6">
+                <div class="bg-black text-center h-100 project">
+                    <div class="d-flex h-100">
+                        <div class="project-text w-100 my-auto text-center text-lg-center">
+                            <h4 class="text-white">Misty</h4>
+                            <p class="mb-0 text-white-50"> 스마트 계약을 통해 동일한 무역정보를 동시에 다수의 이해관계자에게 전달하여 <br>거래 절차 단순화,
+                                수수료 등 부가비용을 줄이고, 서류를 보다 안전하게 보관 및 관리</p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id = "min" class="col-lg-6">
+                <img class="img-fluid" src="{% static 'app/img/blockchain.jpeg'%}" alt="">
+            </div>
+        </div>
+
+        <!-- Project Two Row -->
+        <div class="row align-items-center no-gutters ">
+            <div class="col-lg-6">
+                <img class="img-fluid mb-3 mb-lg-0" src="{% static 'app/img/about1.jpg'%}" alt="">
+            </div>
+            <div class="col-lg-6">
+                <div class="featured-text text-center text-lg-center">
+                    <h3></h3>
+                    <p class="text-black-50 mb-0">세계를 하나로 이어주는 빠르고 안전한 무역거래 시스템</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- Footer Area Start -->
+<footer class="footer-area">
+    <div class="container-fluid h-100">
+        <div class="row h-100">
+            <div class="col-12 h-100">
+                <div class="footer-content h-100 d-md-flex align-items-center justify-content-between">
+                    <!-- Single Footer Content -->
+                    <div class="single-footer-content">
+                        <i class="fa fa-wifi"></i>
+                        <a>valkyriesystem.online</a>
+                    </div>
+                    <!-- Single Footer Content -->
+                    <div class="single-footer-content">
+                        <i class="fa fa-copyright"></i>
+                        <a>Operation Valkyrie</a>
+                    </div>
+                    <!-- Single Footer Content -->
+                    <div class="single-footer-content">
+                        <i class="fa fa-file-text-o"></i>
+                        <a href="{% url 'user_manual' %}" target="_blank">User Manual</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- Footer Area End -->
+
+
+<!-- jQuery (Necessary for All JavaScript Plugins) -->
+<script src="{% static 'app/js/jquery/jquery-2.2.4.min.js'%}"></script>
+<!-- Popper js -->
+<script src="{% static 'app/js/popper.min.js'%}"></script>
+<!-- Bootstrap js -->
+<script src="{% static 'app/js/bootstrap.min.js'%}"></script>
+<!-- Plugins js -->
+<script src="{% static 'app/js/plugins.js'%}"></script>
+<!-- Active js -->
+<script src="{% static 'app/js/active.js'%}"></script>
+
+</body>
+<script>
+
+
+</script>
+
+</html>

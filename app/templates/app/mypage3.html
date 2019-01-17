@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Title  -->
+    <title>Valkyrie System|Valkyrie System</title>
+
+    <!-- Favicon  -->
+    <link rel="icon" href="{% static 'app/img/core-img/favicon.ico'%}">
+
+    <!-- Core Style CSS -->
+    <link rel="stylesheet" href="{% static 'app/css/core-style.css'%}">
+    <link rel="stylesheet" href="{% static 'app/css/style.css'%}">
+
+    <!-- Responsive CSS -->
+    <link href="{% static 'app/css/responsive.css'%}" rel="stylesheet">
+
+</head>
+<style>
+    .card-header{height:80px;font-size:20px;border:1px solid;}
+    .card-body{border:1px solid;}
+    th{font-size:10px;width:70px;}
+    .card{margin-top:30px;}
+    @media (max-width:768px){h5{font-size:14px!important;}}
+    #postcodify_search_button:hover{color:white;}
+
+
+
+</style>
+<body>
+<!-- Preloader -->
+<div id="preloader">
+    <div class="showbox">
+        <div class="loader">
+            <svg class="circular" viewBox="25 25 50 50">
+                <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"></circle>
+            </svg>
+        </div>
+    </div>
+    <div class="questions-area text-center">
+        <p>Please Wait...</p>
+        <ul>
+            <li>Valkyrie Blockchain Trade System</li>
+        </ul>
+    </div>
+</div>
+
+<!-- Gradient Background Overlay -->
+<div class="gradient-background-overlay"></div>
+
+<!-- Header Area Start -->
+<header class="header-area bg-img" style="background-image: url(../../static/app/img/bg-img/14.jpg);">
+    <div class="container-fluid h-100">
+        <div class="row h-100 align-items-center">
+            <div class="col-12 h-100">
+                <div class="main-menu h-100">
+                    <nav class="navbar h-100 navbar-expand-lg">
+                        <!-- Logo Area  -->
+                        <a class="navbar-brand" href="{% url 'index3' %}"><img
+                                src="{% static 'app/img/core-img/logo.png'%}"
+                                alt="Logo"></a>
+
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#studioMenu"
+                                aria-controls="studioMenu" aria-expanded="false" aria-label="Toggle navigation"><i
+                                class="fa fa-bars"></i> Menu
+                        </button>
+
+                        <div class="collapse navbar-collapse" id="studioMenu">
+                            <!-- Menu Area Start  -->
+                            <ul class="navbar-nav ml-auto">
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="{% url 'index3'%}">Home </a>
+                                </li>
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="{% url 'charts'%}">환율정보</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" role="button" data-toggle="dropdown"
+                                       aria-haspopup="true" aria-expanded="false">문서 작성</a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" href="{% url 'forms3'%}">신용장</a>
+
+                                    </div>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" role="button" data-toggle="dropdown"
+                                       aria-haspopup="true" aria-expanded="false">작성 문서 관리</a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" href="{% url 'ing3'%}">신용장</a>
+
+                                    </div>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" role="button" data-toggle="dropdown"
+                                       aria-haspopup="true" aria-expanded="false">받은 문서 관리</a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" href="{% url 'lcrreceived'%}">신용장 신청서</a>
+                                        <a class="dropdown-item" href="{% url 'doreceived2'%}">인도지시서</a>
+                                    </div>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'mypage3'%}">MYPAGE</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="" data-toggle="modal"
+                                       data-target="#logoutModal">LOGOUT</a>
+                                </li>
+                            </ul>
+                            <!-- Search Form -->
+
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- Header Area End -->
+
+
+<!--Valkyrie System Area Start -->
+<section class="blog-area section_padding_100 mt-100">
+    <div class="container">
+        <div class="row justify-content-center">
+
+            <div class="container-fluid">
+                <!-- /here -->
+                <div class="col-8 mx-auto">
+
+                    <div class="card">
+                        <button class="card-header btn btn-outline-dark" onclick="userinfotoggle()">나의 정보
+                        </button>
+                        <div class="card-body" id="userinfo" style="display:none;">
+                            <ul class="list-group">
+                                <h4 style="color:#ff8a12;"> {{user_info.user_id}}</h4>
+
+                                <li class="list-group-item">
+                                    <h5>Name</h5>
+                                    {{user_info.user_name}}
+                                </li>
+                                <li class="list-group-item">
+                                    <h5>Address</h5>
+                                    {{user_info.address}}
+                                </li>
+                                <li class="list-group-item">
+                                    <h5>Business Number</h5>
+                                    {{user_info.businessnum}}
+                                </li>
+                                <li class="list-group-item">
+                                    <h5>Trade Business Code</h5>
+                                    {{user_info.tbc}}
+                                </li>
+                                <li class="list-group-item">
+                                    <h5>OTP</h5>
+                                    {{user_info.otpkey}}
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-8 mx-auto">
+                    <div class="card">
+                        <button class="card-header btn btn-outline-dark" onclick="personaltoggle()">개인정보 수정
+                        </button>
+                        <div class="card-body" id="personal" style="display:none;">
+
+                            <div class="form-group">
+
+
+                                <form method="post" style="margin-bottom:40px;">
+
+                                    <h4 style="color:#ff8a12;">주소 변경</h4>
+                                    <ul class="list-group">
+
+                                        <li class="list-group-item">
+                                            <div>
+                                                <a style="" class="btn btn-outline-dark" id="postcodify_search_button">주소
+                                                    찾기</a>
+                                            </div>
+                                            <label class="form-group-text" for="postcode">Postcode</label>
+                                            <input class="form-control postcodify_postcode5" type="text" name="postcode"
+                                                   id="postcode"
+                                                   value=""/><br/>
+                                            <label class="form-group-text" for="address">Address</label>
+                                            <input class="form-control postcodify_address" type="text" name="address"
+                                                   id="address"
+                                                   value=""/><br/>
+                                            <label class="form-group-text" for="details">Details</label>
+                                            <input class="form-control postcodify_details" type="text" name="details"
+                                                   id="details"
+                                                   value=""/><br/>
+                                            <label class="form-group-text" for="extra_info">Extra Info</label>
+                                            <input class="form-control postcodify_extra_info" type="text"
+                                                   name="extra_info" id="extra_info"
+                                                   value=""/><br/>
+                                            <div class="form-group-append" style="text-align:center;padding-top:20px;">
+                                                <button id="form1" class="btn btn-outline-dark">수정하기</button>
+                                                <button class="btn btn-outline-dark" type="reset">다시작성</button>
+                                            </div>
+                                        </li>
+                                        {% csrf_token %}
+                                    </ul>
+                                </form>
+
+                                <form method="post">
+                                    <h4 style="color:#ff8a12;">비밀번호 변경</h4>
+                                    <ul class="list-group">
+                                        <li class="list-group-item">
+                                            <label class="form-group-text" for="pw">password</label>
+                                            <input class="form-control" id="pw" name="user_pw" type="password"
+                                                   required="required">
+                                            <label class="form-group-text" for="npw">new password<br>(숫자,영문,특수문자 포함 8자리
+                                                이상)</label>
+                                            <input class="form-control" id="npw" name="user_npw" type="password"
+                                                   required="required">
+                                            <label class="form-group-text" for="cpw">confirm new password</label>
+                                            <input class="form-control" id="cpw" name="user_cpw" type="password"
+                                                   required="required">
+                                            <div class="form-group-append" style="text-align:center;padding-top:20px;">
+                                                <button id="form2" class="btn btn-outline-dark">수정하기</button>
+                                                <button class="btn btn-outline-dark" type="reset">다시작성</button>
+                                            </div>
+                                            {% csrf_token %}
+                                        </li>
+                                    </ul>
+                                </form>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+
+
+                <div class="col-8 mx-auto">
+                    <div class="card">
+                        <button class="card-header btn btn-outline-dark" onclick="otptoggle()">OTP 등록하기</button>
+                        <div class="card-body" id="otp" style="display:none; text-align:center;">
+                            <div class="col-12">
+                                <h4 style="color:#ff8a12;">OTP 발급</h4>
+                                <div id="qrcode">
+
+                                </div>
+                                <div id="otpkey">
+
+                                </div>
+
+                                <form method="post">
+                                    <div class="col-lg-6 col-md-10 mx-auto">
+                                        <button id="otp" class="btn btn-outline-dark  btn-block">makeotp
+                                        </button>
+
+                                    </div>
+                                    {% csrf_token %}
+                                </form>
+
+
+                                <h5 style="color:#ff8a12;"><br>You can only get one time.<br>
+                                    Please contact us if you are lost.</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-8 mx-auto">
+                    <div class="card">
+                        <button class="card-header btn btn-outline-dark" onclick="mytrade()">나의 거래 보기
+                        </button>
+                        <div class="card-body" id="trade" style="display:block;text-align;center;display:none;">
+                            <form method="post">
+                                <div class="form-group">
+                                    <h4 style="color:#ff8a12;">진행 사항</h4>
+                                    <table class="mx-auto">
+                                        <tr>
+                                            <th>Start</th>
+                                            <th style="text-align:center">CI<br>전송</th>
+                                            <th style="text-align:center">LCR<br>전송</th>
+                                            <th style="text-align:center">LC<br> 발급</th>
+                                            <th style="text-align:center">SR<br>발급</th>
+                                            <th style="text-align:center">BL<br> 발급</th>
+                                            <th style="text-align:center">DO<br>발급</th>
+                                            <th style="text-align:right;">End</th>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="10">
+                                                <div class="progress" id="progress">
+
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </table>
+
+
+                                    <div style="text-align:center; margin-top:20px">
+                                        <label>Contract ID :</label><br>
+                                        <select style=" width:200px; " class="custom-select" name="mytrade">
+                                            {% for i in mytrade %}
+                                            <option value="{{i.id}}">{{i.id}}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+                                    <div style="text-align:center; margin-top:20px">
+                                        <button id="form3" class="btn btn-outline-dark ">진행 사항 보기</button>
+                                        <button class="btn btn-outline-dark" formaction="{% url 'search3'%}">내역 보기
+                                        </button>
+                                    </div>
+                                </div>
+                                {% csrf_token %}
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-8 mx-auto">
+                    <div class="card">
+                        <button class="card-header btn btn-outline-dark" onclick="myqna()">문의 하기
+                        </button>
+                        <div class="card-body" id="qna" style="display:none;">
+                            <form>
+                                <div class="form-group">
+                                    <h4 style="color:#ff8a12;">문의 사항</h4>
+                                    <form method="post">
+                                        <textarea class="form-control" rows="5" id="email" name="email"></textarea>
+                                        <p style="color:#ff8a12;">*답장은 ID(e-mail)로 전송됩니다.</p>
+                                        <div style="margin-top:20px;text-align:center;">
+
+                                            <button id="form4" class="btn btn-outline-dark">이메일 보내기</button>
+                                        </div>
+
+                                        {% csrf_token %}
+                                    </form>
+
+                                </div>
+                                {% csrf_token %}
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.row -->
+            </div>
+            <!-- /.content-wrapper -->
+        </div>
+        <!-- Pagination -->
+    </div>
+</section>
+<!--Valkyrie System Area End -->
+
+<!-- Footer Area Start -->
+<footer class="footer-area">
+    <div class="container-fluid h-100">
+        <div class="row h-100">
+            <div class="col-12 h-100">
+                <div class="footer-content h-100 d-md-flex align-items-center justify-content-between">
+                    <!-- Single Footer Content -->
+                    <div class="single-footer-content">
+                        <i class="fa fa-wifi"></i>
+                        <a>valkyriesystem.online</a>
+                    </div>
+                    <!-- Single Footer Content -->
+                    <div class="single-footer-content">
+                        <i class="fa fa-copyright"></i>
+                        <a>Operation Valkyrie</a>
+                    </div>
+                    <!-- Single Footer Content -->
+                    <div class="single-footer-content">
+                        <i class="fa fa-file-text-o"></i>
+                        <a href="{% url 'user_manual' %}" target="_blank">User Manual</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- Footer Area End -->
+
+<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+            <div class="modal-footer">
+                <a style="color:white;" class="btn btn-dark" data-dismiss="modal">Cancel</a>
+                <a class="btn" style="color:white;background:#ff8a12;" href="{% url 'logout' %}">Logout</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- jQuery (Necessary for All JavaScript Plugins) -->
+<script src="{% static 'app/js/jquery/jquery-2.2.4.min.js'%}"></script>
+<!-- Popper js -->
+<script src="{% static 'app/js/popper.min.js'%}"></script>
+<!-- Bootstrap js -->
+<script src="{% static 'app/js/bootstrap.min.js'%}"></script>
+<!-- Plugins js -->
+<script src="{% static 'app/js/plugins.js'%}"></script>
+<!-- Active js -->
+<script src="{% static 'app/js/active.js'%}"></script>
+
+<script src="https://d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>
+
+</body>
+<script>
+$(function() { $("#postcodify_search_button").postcodifyPopUp(); });
+
+function userinfotoggle(){
+    var userinfo = document.getElementById("userinfo");
+    if (userinfo.style.display === "inline-block"){
+        userinfo.style.display = "none";
+    } else {
+        userinfo.style.display = "inline-block";
+    }
+}
+
+function personaltoggle(){
+    var personal = document.getElementById("personal");
+    if (personal.style.display === "inline-block"){
+        personal.style.display = "none";
+    } else {
+        personal.style.display = "inline-block";
+    }
+}
+
+function otptoggle(){
+    var otp = document.getElementById("otp");
+    if (otp.style.display === "inline-block"){
+        otp.style.display = "none";
+    } else {
+        otp.style.display = "inline-block";
+    }
+}
+
+function mytrade(){
+    var trade = document.getElementById("trade");
+    if (trade.style.display === "inline-block"){
+        trade.style.display = "none";
+    } else {
+        trade.style.display = "inline-block";
+    }
+}
+
+function myqna(){
+    var qna = document.getElementById("qna");
+    if (qna.style.display === "inline-block"){
+        qna.style.display = "none";
+    } else {
+        qna.style.display = "inline-block";
+    }
+}
+
+
+    $('#form1').click(function(){
+     var address = $('#address').val();
+     if (address.length ==0){
+        alert('주소를 입력하세요.')
+     }else{
+
+         $.ajax({
+            url:'/addressmodify/',
+            type:'post',
+            data:$('form').serialize(),
+            success: function(res){
+                if (res.result == 'success'){
+                    alert(res.result)
+                    location = '/mypage3/'
+                    }else{
+                    alert(res.result)
+                    location = '/mypage3/'
+                }
+            }
+
+        })
+     }
+    return false
+ })
+
+
+
+ $('#form3').click(function(){
+         $.ajax({
+            url:'/mytrade/',
+            type:'post',
+            data:$('form').serialize(),
+            success: function(res){
+                if (res.result == 'Invalid Contract'){
+                    alert(res.result)
+                }else if (res.trade[0].CI_hash.length == 0 ){
+                     $('#progress').empty();
+                    $('#progress').append(`<div class="progress-bar" style="width:19%"></div>`);
+                }else if (res.trade[0].LCR_hash.length == 0){
+                $('#progress').empty();
+                    $('#progress').append(`<div class="progress-bar" style="width:32%"></div>`)
+                }else if (res.trade[0].LC_hash.length == 0){
+                    $('#progress').empty();
+                        $('#progress').append(`<div class="progress-bar" style="width:44%"></div>`)
+                }else if (res.trade[0].SR_hash.length == 0){
+                    $('#progress').empty();
+                        $('#progress').append(`<div class="progress-bar" style="width:57%"></div>`)
+                }else if (res.trade[0].BL_hash.length == 0){
+                    $('#progress').empty();
+                        $('#progress').append(`<div class="progress-bar" style="width:69%"></div>`)
+                }else if (res.trade[0].DO_hash.length == 0){
+                    $('#progress').empty();
+                        $('#progress').append(`<div class="progress-bar" style="width:82%"></div>`)
+                }else if (res.trade[0].DO_hash.length != 0){
+                        $('#progress').empty();
+                        $('#progress').append(`<div class="progress-bar" style="width:100%">complete</div>`)
+                }else{
+                         $('#progress').empty();
+                        $('#progress').append(`<div class="progress-bar" style="width:0%"></div>`)
+                }
+
+        }
+    })
+    return false
+ })
+
+
+
+ $('#form4').click(function(){
+     $('.btn').attr('disabled',true);
+     $('#preloader').show();
+     $.ajax({
+        url:'/email/',
+        type:'post',
+        data:$('form').serialize(),
+        success: function(res){
+            if (res.result == 'Success'){
+                alert(res.result)
+                location = '/mypage3/'
+                }else{
+                alert(res.result)
+                location = '/mypage3/'
+                }
+            }
+        })
+        return false
+     })
+
+     $('#form2').click(function(){
+
+
+    var n_pw = document.getElementById('npw');
+    var pass = $('#pw').val();
+    var n_pass = $('#npw').val();
+    var c_pass = $('#cpw').val();
+
+
+    if (pass.length == 0){
+        alert("비밀번호를 입력하세요");
+        return false;
+
+    }else if (!chk(/^(?=.*?[a-zA-Z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/, n_pw, "비밀번호 : 영문,숫자,특수문자(!@$%^&* 만 허용)를 사용하여 8~16자까지, 영문은 대소문자를 구분합니다.")){
+        return false;
+    }else if (c_pass.length == 0){
+        alert("비밀번호 확인란을 입력하세요.");
+        return false;
+
+    }else if(n_pass != c_pass){
+        alert("새로운 비밀번호가 일치하지 않습니다.");
+        return false;
+    }else{
+      $.ajax({
+        url:'/pwmodify/',
+        type:'post',
+        data:$('form').serialize(),
+        success: function(res){
+            if (res.result == 'success'){
+                alert(res.result)
+                location = '/mypage3/'
+                }else{
+                location = '/mypage3/'
+                }
+            }
+        });
+        return false;
+    }
+});
+
+ function chk(re, e, msg) {
+        if (re.test(e.value)) {
+           return true;
+        }
+        alert(msg);
+        e.focus();
+        return false;
+    }
+
+    $("#npw").keyup(function(){
+    var email = document.getElementById('npw');
+    if(!check(/^(?=.*?[a-zA-Z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/, npw)){
+         $('#npw').css("border", "#ff0000 solid 2px");
+    }else{
+        $('#npw').css("border", "#00ff3b solid 2px");
+    }
+});
+
+    function check(re, e) {
+        if (re.test(e.value)) {
+           return true;
+        }
+        e.focus();
+        return false;
+    }
+
+
+
+
+</script>
+<script type="text/javascript" src="https://www.webtoolkitonline.com/js/jquery.qrcode-0.6.0.min.js"></script>
+<script type="text/javascript">
+		 $('#otp').click(function(){
+         $.ajax({
+            url:'/makeotp/',
+            type:'post',
+            data:$('form').serialize(),
+            success: function(res){
+                if (res.result == 'Already Issued'){
+                    alert(res.result)
+
+                    }else{
+                    var qrcodetext =  res.data
+
+                    if (qrcodetext.length != 0) {
+                            $("#qrcode").empty();
+                            $("#qrcode").qrcode({
+                                render : 'image',
+                                color: 'black',
+                                text: qrcodetext
+                                });
+                            }else{
+                               return false;
+                            }
+                    $('#otpkey').append(`<h2 style="color:#0062cc;">${res.otpkey}</h2>`)
+                    }
+                }
+            })
+            return false
+         })
+
+
+
+
+
+
+
+
+</script>
+
+</html>

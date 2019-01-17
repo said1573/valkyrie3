@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Title  -->
+    <title>Valkyrie System</title>
+
+    <!-- Favicon  -->
+    <link rel="icon" href="{% static 'app/img/core-img/favicon.ico'%}">
+
+    <!-- Core Style CSS -->
+    <link rel="stylesheet" href="{% static 'app/css/core-style.css'%}">
+    <link rel="stylesheet" href="{% static 'app/css/style.css'%}">
+
+    <!-- Responsive CSS -->
+    <link href="{% static 'app/css/responsive.css'%}" rel="stylesheet">
+
+</head>
+<style>
+     td{padding:0px!important;}
+    .card{background:#1d1d1de8;padding:10px;}
+    .card-header{ color:#ff8a12;font-size:20px; border-bottom:1px solid white;}
+    .card-body{color:white;font-size:18px;}
+    .wrapper{ border-radius:10px; background-position:center; background-size:cover;}
+    a{font-size:20px}
+    @media (max-width:768px){
+    label{display:none;}
+    a{font-size:15px}
+    .card-header{font-size:18px}
+    .card-body{padding:10px}
+    #cid{border-top-left-radius:3px!important;
+    border-bottom-left-radius:3px!important;}}
+
+    @media (max-width:768px){.card-header{font-size:16px} th,td{font-size:15px}}
+
+
+
+
+
+</style>
+<body>
+<!-- Preloader -->
+<div id="preloader">
+    <div class="showbox">
+        <div class="loader">
+            <svg class="circular" viewBox="25 25 50 50">
+                <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2"
+                        stroke-miterlimit="10"></circle>
+            </svg>
+        </div>
+    </div>
+    <div class="questions-area text-center">
+        <p>Please Wait...</p>
+        <ul>
+            <li>Valkyrie Blockchain Trade System</li>
+        </ul>
+    </div>
+</div>
+
+<!-- Gradient Background Overlay -->
+<div class="gradient-background-overlay"></div>
+
+<!-- Header Area Start -->
+<header class="header-area bg-img" style="background-image: url(../../static/app/img/bg-img/14.jpg);">
+    <div class="container-fluid h-100">
+        <div class="row h-100 align-items-center">
+            <div class="col-12 h-100">
+                <div class="main-menu h-100">
+                    <nav class="navbar h-100 navbar-expand-lg">
+                        <!-- Logo Area  -->
+                        <a class="navbar-brand" href="{% url 'index4' %}"><img
+                                src="{% static 'app/img/core-img/logo.png'%}"
+                                alt="Logo"></a>
+
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#studioMenu"
+                                aria-controls="studioMenu" aria-expanded="false" aria-label="Toggle navigation"><i
+                                class="fa fa-bars"></i> Menu
+                        </button>
+
+                        <div class="collapse navbar-collapse" id="studioMenu">
+                            <!-- Menu Area Start  -->
+                            <ul class="navbar-nav ml-auto">
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="{% url 'index4'%}">Home </a>
+                                </li>
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="{% url 'charts'%}">환율정보</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" role="button" data-toggle="dropdown"
+                                       aria-haspopup="true" aria-expanded="false">문서 작성</a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" href="{% url 'forms4_1'%}">선하증권</a>
+                                        <a class="dropdown-item" href="{% url 'forms4_2'%}">인도지시서</a>
+                                    </div>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" role="button" data-toggle="dropdown"
+                                       aria-haspopup="true" aria-expanded="false">작성 문서 관리</a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" href="{% url 'ing4_1'%}">선하증권</a>
+                                        <a class="dropdown-item" href="{% url 'ing4_2'%}">인도지시서</a>
+                                    </div>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" role="button" data-toggle="dropdown"
+                                       aria-haspopup="true" aria-expanded="false">받은 문서 관리</a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" href="{% url 'srreceived'%}">선적요청서</a>
+
+                                    </div>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'mypage4'%}">MYPAGE</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="" data-toggle="modal"
+                                       data-target="#logoutModal">LOGOUT</a>
+                                </li>
+                            </ul>
+                            <!-- Search Form -->
+
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- Header Area End -->
+
+
+<!--Valkyrie System Area Start -->
+<section class="blog-area section_padding_100 mt-100">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="container-fluid">
+                <div class="wrapper" style="background-image: url(../../static/app/img/block.jpg);">
+                    <div class="card">
+                        <form method="post" action="{% url 'search4'%}">
+                            <div class="card-header">블록체인 검색</div>
+                            <div class="card-body">
+                                <div class="input-group">
+                                    <label style="background:white; border:0px;border-top-right-radius:0px;border-bottom-right-radius:0px;"
+                                           class="input-group-text" for="cid">Contract ID</label>
+                                    <input class="form-control" id="cid" name="cid" type="text" required="required">
+                                    <div class="input-group-append">
+                                        <button type="submit" class="btn btn-outline-dark"
+                                                style="background-color:#ff8a12;color:white;border: #ff8a12 2px solid;border-top-left-radius:0px;border-bottom-left-radius:0px;">
+                                            search
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {% csrf_token %}
+                        </form>
+                    </div>
+                </div>
+                &nbsp
+                <div class="wrapper" style="background-image: url(../../static/app/img/block.jpg);">
+                    <div class="card">
+                        <div class="card-header">
+                            Notice
+                        </div>
+
+                        <div class="card-body" style="padding:0px;">
+                            <table class="table" style="text-align:center;">
+                                <tr>
+                                    <th>No.</th>
+                                    <th>Title</th>
+                                    <th>Date</th>
+                                    <th>Details</th>
+                                </tr>
+                                {% for n in notice%}
+
+                                <tr>
+
+                                    <td>{{n.id}}</td>
+                                    <td>{{n.title}}</td>
+                                    <td>{{n.c_date}}</td>
+                                    <td>
+                                        <button class="btn btn-outline-dark" id="{{n.id}}"
+                                                style="border:0px; border-radius:0px; color:white;"
+                                                onclick="toggleContent(this)">View
+                                        </button>
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+                                    <td colspan="4">
+                                        <div name="{{n.id}}" style="display:none; padding:20px!important;">
+                                            {{n.content}}
+                                        </div>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                &nbsp
+                <div class="wrapper" style="background-image: url(../../static/app/img/block.jpg);">
+                    <div class="card">
+                        <div class="card-header">
+                            News(무역)&nbsp/&nbsp {{date}} - 출처:네이버
+                        </div>
+                        {% for news in result %}
+                        <div class="card-body">
+                            <a style="color:white; font-weight:500" href="{{news.link}}" target="_blank">
+                                {{news.title}}</a>
+                        </div>
+                        {% endfor %}
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Icon Cards-->
+        </div>
+    </div>
+</section>
+
+<!-- Footer Area Start -->
+<footer class="footer-area">
+    <div class="container-fluid h-100">
+        <div class="row h-100">
+            <div class="col-12 h-100">
+                <div class="footer-content h-100 d-md-flex align-items-center justify-content-between">
+                    <!-- Single Footer Content -->
+                    <div class="single-footer-content">
+                        <i class="fa fa-wifi"></i>
+                        <a>valkyriesystem.online</a>
+                    </div>
+                    <!-- Single Footer Content -->
+                    <div class="single-footer-content">
+                        <i class="fa fa-copyright"></i>
+                        <a>Operation Valkyrie</a>
+                    </div>
+                    <!-- Single Footer Content -->
+                    <div class="single-footer-content">
+                        <i class="fa fa-file-text-o"></i>
+                        <a href="{% url 'user_manual' %}" target="_blank">User Manual</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- Footer Area End -->
+
+<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+            <div class="modal-footer">
+                <a style="color:white;" class="btn btn-dark" data-dismiss="modal">Cancel</a>
+                <a class="btn" style="color:white;background:#ff8a12;" href="{% url 'logout' %}">Logout</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- jQuery (Necessary for All JavaScript Plugins) -->
+<script src="{% static 'app/js/jquery/jquery-2.2.4.min.js'%}"></script>
+<!-- Popper js -->
+<script src="{% static 'app/js/popper.min.js'%}"></script>
+<!-- Bootstrap js -->
+<script src="{% static 'app/js/bootstrap.min.js'%}"></script>
+<!-- Plugins js -->
+<script src="{% static 'app/js/plugins.js'%}"></script>
+<!-- Active js -->
+<script src="{% static 'app/js/active.js'%}"></script>
+
+</body>
+<script>
+
+$("#cid").keyup(function(){
+        $.ajax({
+            url:'/checkcontract/',
+            type:'post',
+            data:$('form').serialize(),
+            success:function(res){
+                if(res.result == 'exist'){
+                     $('#cid').css("border", "#00ff3b solid 2px");
+                }else{
+                    $('#cid').css("border", "#ff0000 solid 2px");
+                }
+            }
+        });
+    });
+
+function toggleContent(obj) {
+    var id = obj.id;
+
+    var contentBox = document.getElementsByName(id)[0];
+
+    if(contentBox.style.display == "inline-block") {
+    contentBox.style.display = "none";
+    }
+    else {
+    contentBox.style.display = "inline-block";
+    }
+}
+
+
+
+
+</script>
+
+</html>
